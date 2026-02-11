@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afdul Salfuan — Resume | SyferX</title>
+    <meta name="description" content="Resume of Afdul Salfuan (SyferX) — Full-Stack Developer, Security Researcher, Innovation Engineer">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* ========== CSS Variables ========== */
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-tertiary: #1a1a26;
+            --text-primary: #ffffff;
+            --text-secondary: #b4b4c8;
+            --text-muted: #8888a0;
+            --accent-purple: #a855f7;
+            --accent-cyan: #06b6d4;
+            --accent-pink: #ec4899;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --shadow-glow: 0 0 40px rgba(168, 85, 247, 0.15);
+            --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        /* ========== Reset & Base Styles ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* ========== Canvas Background ========== */
+        #starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ========== Aurora Glow Background ========== */
+        .aurora-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.4;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+            animation: aurora-shift 20s ease-in-out infinite;
+        }
+
+        @keyframes aurora-shift {
+            0%, 100% { opacity: 0.4; transform: scale(1) rotate(0deg); }
+            50% { opacity: 0.6; transform: scale(1.1) rotate(5deg); }
+        }
+
+        /* ========== Main Container ========== */
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ========== Navbar ========== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 1rem 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-brand {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-purple);
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            color: var(--text-primary);
+            border: none;
+            padding: 0.625rem 1.25rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(168, 85, 247, 0.3);
+        }
+
+        /* ========== Header Section ========== */
+        .header {
+            padding: 4rem 0 3rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .title {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .contact-item i {
+            color: var(--accent-cyan);
+        }
+
+        .contact-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-purple);
+        }
+
+        /* ========== Glass Card ========== */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-glow);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title i {
+            color: var(--accent-purple);
+        }
+
+        /* ========== Summary Section ========== */
+        .summary {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        /* ========== Skills Grid ========== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.2);
+            border-color: var(--accent-purple);
+        }
+
+        .skill-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ========== Experience & Education ========== */
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+            border-left: 2px solid var(--glass-border);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background: var(--accent-purple);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--accent-purple);
+        }
+
+        .timeline-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-item .company {
+            color: var(--accent-cyan);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-item .role {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .timeline-item ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .timeline-item li {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .timeline-item li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+            font-weight: bold;
+        }
+
+        .timeline-item .link {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            margin-top: 0.5rem;
+        }
+
+        .timeline-item .link:hover {
+            color: var(--accent-purple);
+        }
+
+        /* ========== Projects Grid ========== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.2);
+            border-color: var(--accent-cyan);
+        }
+
+        .project-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-cyan);
+        }
+
+        .project-tech {
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ========== Certifications ========== */
+        .cert-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .cert-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .cert-info .issuer {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .cert-date {
+            color: var(--accent-cyan);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .cert-link {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .cert-link:hover {
+            color: var(--accent-purple);
+        }
+
+        /* ========== Languages & Interests ========== */
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .tag {
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid var(--accent-purple);
+            color: var(--accent-purple);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .language-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .language-item i {
+            color: var(--accent-cyan);
+        }
+
+        .proficiency {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+        }
+
+        /* ========== Footer ========== */
+        .footer {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: var(--accent-purple);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* ========== Print Styles ========== */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            #starfield,
+            .aurora-bg,
+            .navbar,
+            .btn-download,
+            .footer {
+                display: none !important;
+            }
+
+            .glass-card {
+                background: white;
+                border: 1px solid #ddd;
+                box-shadow: none;
+                page-break-inside: avoid;
+                opacity: 1;
+                transform: none;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .header h1 {
+                color: black;
+                -webkit-text-fill-color: black;
+            }
+
+            .section-title,
+            .timeline-item h3,
+            .project-card h3 {
+                color: black;
+            }
+
+            .timeline-item .company,
+            .contact-item,
+            .contact-item a,
+            .summary,
+            .timeline-item li,
+            .project-card p {
+                color: #333;
+            }
+
+            a[href]:after {
+                content: " (" attr(href) ")";
+                font-size: 0.8em;
+            }
+
+            .nav-link[href]:after,
+            .cert-link[href]:after {
+                content: "";
+            }
+        }
+
+        /* ========== Responsive Design ========== */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .header .title {
+                font-size: 1rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+
+            .nav-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .glass-card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .glass-card {
+                padding: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Canvas Background -->
+    <canvas id="starfield"></canvas>
+
+    <!-- Aurora Glow Background -->
+    <div class="aurora-bg"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="nav-brand">
+                <i class="fas fa-arrow-left"></i> SyferX
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Back to Portfolio
+                </a>
+                <button class="btn-download" onclick="window.print()">
+                    <i class="fas fa-download"></i> Download PDF
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Afdul Salfuan</h1>
+            <p class="title">Full-Stack Developer • Security Researcher • Innovation Engineer</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Bukit Mertajam, Pulau Pinang</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+60116060807">+60 11-6060-8071</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:superlevel2021@gmail.com">superlevel2021@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-globe"></i>
+                    <a href="https://syferx.net" target="_blank">syferx.net</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/RealSyferX" target="_blank">@RealSyferX</a> / 
+                    <a href="https://github.com/ArtzOfC" target="_blank">@ArtzOfC</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Professional Summary -->
+        <section class="glass-card">
+            <h2 class="section-title">
+                <i class="fas fa-user"></i>
+                Professional Summary
+            </h2>
+            <p class="summary">
+                Full-Stack Developer and Security Researcher with expertise in web development (PHP, HTML, CSS, SQL, Laravel), 
+                systems programming (C++, Assembly), and networking. Currently pursuing an Application Module Development Diploma 
+                at Kolej Synergy. Passionate about building secure, scalable applications and exploring low-level security concepts.
+            </p>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="glass-card">
+            <h2 class="section-title">
+                <i class="fas fa-code"></i>
+                Technical Skills
+            </h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>🌐 Web Development</h3>
+                    <p>PHP, Full-Stack Apps, Authentication Systems, Real-time Web Solutions</p>
+                </div>
+                <div class="skill-card">
+                    <h3>🎨 Frontend</h3>
+                    <p>HTML5, Responsive Design, Semantic Markup, Modern Layouts</p>
+                </div>
+                <div class="skill-card">
+                    <h3>🎭 Styling &amp; Animation</h3>
+                    <p>CSS3, Tailwind CSS, Glassmorphism, Advanced Animations</p>
+                </div>
+                <div class="skill-card">
+                    <h3>⚙️ Systems Programming</h3>
+                    <p>C++ - OOP, Memory Management, Performance Optimization</p>
+                </div>
+                <div class="skill-card">
+                    <h3>🔧 Low-Level Programming</h3>
+                    <p>x86 Assembly, Reverse Engineering, Software Analysis</p>
+                </div>
+                <div class="skill-card">
+                    <h3>🌍 Networking</h3>
+                    <p>Network Configuration, Routing, TCP/IP, Cisco Devices</p>
+                </div>
+                <div class="skill-card">
+                    <h3>💾 Databases</h3>
+                    <p>MySQL, Complex Queries, Database Architecture, Optimization</p>
+                </div>
+                <div class="skill-card">
+                    <h3>🚀 Frameworks</h3>
+                    <p>Laravel, Application Architecture, MVC Pattern, APIs</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience -->
+        <section class="glass-card">
+            <h2 class="section-title">
+                <i class="fas fa-briefcase"></i>
+                Professional Experience
+            </h2>
+            <div class="timeline-item">
+                <h3 class="company">Tenaga Nasional Berhad (TNB)</h3>
+                <p class="role">Trainee - Computer System &amp; Networking</p>
+                <p class="date">
+                    <i class="fas fa-calendar"></i>
+                    May 2020 — October 2020 | Full-Time
+                </p>
+                <ul>
+                    <li>Configured and troubleshot enterprise Cisco Switches and Routers with advanced routing protocols</li>
+                    <li>Managed Windows phone deployments for field operations and performed comprehensive server rack maintenance</li>
+                    <li>Executed network cabling and infrastructure tasks while maintaining SKM Level 3 certification standards</li>
+                </ul>
+                <a href="https://www.tnb.com.my" target="_blank" class="link">
+                    <i class="fas fa-external-link-alt"></i> www.tnb.com.my
+                </a>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="glass-card">
+            <h2 class="section-title">
+                <i class="fas fa-graduation-cap"></i>
+                Education
+            </h2>
+            <div class="timeline-item">
+                <h3 class="company">Kolej Synergy</h3>
+                <p class="role">Application Module Development Diploma</p>
+                <p class="date">
+                    <i class="fas fa-calendar"></i>
+                    May 2023 — May 2025 | Diploma Kemahiran Malaysia (DKM)
+                </p>
+                <p style="color: var(--text-secondary); margin-top: 0.5rem;">
+                    Specialization in full-stack web development, database design, and enterprise application architecture 
+                    using PHP, Laravel, and SQL.
+                </p>
+                <a href="https://synergycollege.edu.my" target="_blank" class="link">
+                    <i class="fas fa-external-link-alt"></i> synergycollege.edu.my
+                </a>
+            </div>
+            <div class="timeline-item">
+                <h3 class="company">GIATMARA Bagan</h3>
+                <p class="role">Computer System &amp; Networking (SKM Level 3)</p>
+                <p class="date">
+                    <i class="fas fa-calendar"></i>
+                    January 2019 — December 2020 | GPA: 3.0
+                </p>
+                <p style="color: var(--text-secondary); margin-top: 0.5rem;">
+                    Comprehensive vocational training in IT systems, network administration, hardware troubleshooting, 
+                    and enterprise networking.
+                </p>
+                <a href="https://giatmara.edu.my" target="_blank" class="link">
+                    <i class="fas fa-external-link-alt"></i> giatmara.edu.my
+                </a>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section class="glass-card">
+            <h2 class="section-title">
+                <i class="fas fa-certificate"></i>
+                Certifications
+            </h2>
+            <div class="cert-item">
+                <div class="cert-info">
+                    <h3>SKM Level 3 — Computer System &amp; Networking</h3>
+                    <p class="issuer">GIATMARA Bagan</p>
+                </div>
+                <div class="cert-date">
+                    <i class="fas fa-calendar-check"></i> December 31, 2020
+                </div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-info">
+                    <h3>Google IT Support Professional</h3>
+                    <p class="issuer">Google Inc. — Verified Certificate</p>
+                </div>
+                <div>
+                    <div class="cert-date">
+                        <i class="fas fa-calendar-check"></i> September 4, 2024
+                    </div>
+                    <a href="https://tinyurl.com/AfdulGoogle" target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notable Projects -->
+        <section class="glass-card">
+            <h2 class="section-title">
+                <i class="fas fa-folder-open"></i>
+                Notable Projects
+            </h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Kernel R/W Driver</h3>
+                    <p class="project-tech">C++</p>
+                    <p>Windows kernel driver with IOCTL usermode communication for direct memory read/write operations</p>
+                </div>
+                <div class="project-card">
+                    <h3>Larapi</h3>
+                    <p class="project-tech">VB.NET</p>
+                    <p>Free Laragon patcher tool for extended functionality and customization</p>
+                </div>
+                <div class="project-card">
+                    <h3>NightCorePitch</h3>
+                    <p class="project-tech">JavaScript</p>
+                    <p>Firefox extension for real-time audio pitch manipulation and nightcore effects</p>
+                </div>
+                <div class="project-card">
+                    <h3>Laravel Auth System</h3>
+                    <p class="project-tech">PHP</p>
+                    <p>Complete login &amp; registration system with authentication and authorization</p>
+                </div>
+                <div class="project-card">
+                    <h3>Nightcore Era</h3>
+                    <p class="project-tech">HTML/CSS/JS</p>
+                    <p>Web music platform tribute to 2000-2013 Nightcore golden age</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Languages -->
+        <section class="glass-card">
+            <h2 class="section-title">
+                <i class="fas fa-language"></i>
+                Languages
+            </h2>
+            <div class="language-item">
+                <i class="fas fa-check-circle"></i>
+                <strong>Bahasa Malaysia</strong>
+                <span class="proficiency">— Fluent (Native)</span>
+            </div>
+            <div class="language-item">
+                <i class="fas fa-check-circle"></i>
+                <strong>English</strong>
+                <span class="proficiency">— Fluent (Proficient)</span>
+            </div>
+        </section>
+
+        <!-- Interests & Hobbies -->
+        <section class="glass-card">
+            <h2 class="section-title">
+                <i class="fas fa-heart"></i>
+                Interests &amp; Hobbies
+            </h2>
+            <div class="tags-container">
+                <span class="tag">Reverse Engineering &amp; Security Research</span>
+                <span class="tag">Music Production &amp; Nightcore Culture</span>
+                <span class="tag">Open Source Development</span>
+                <span class="tag">Low-Level Systems Exploration</span>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Afdul Salfuan. Built with passion for innovation and security.</p>
+        <p>
+            <a href="https://github.com/RealSyferX" target="_blank">GitHub</a> • 
+            <a href="https://syferx.net" target="_blank">Website</a>
+        </p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // ========== Canvas Starfield Background ==========
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        // Star particle class
+        class Star {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedY = Math.random() * 0.5 + 0.1;
+                this.opacity = Math.random() * 0.5 + 0.3;
+                this.twinkleSpeed = Math.random() * 0.02 + 0.01;
+                this.twinklePhase = Math.random() * Math.PI * 2;
+            }
+
+            update() {
+                this.y += this.speedY;
+                this.twinklePhase += this.twinkleSpeed;
+                
+                if (this.y > canvas.height) {
+                    this.y = 0;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+
+            draw() {
+                const twinkle = Math.sin(this.twinklePhase) * 0.3 + 0.7;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(168, 85, 247, ${this.opacity * twinkle})`;
+                ctx.fill();
+                
+                // Add cyan sparkle occasionally
+                if (Math.random() > 0.98) {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size * 1.5, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(6, 182, 212, ${this.opacity * 0.5})`;
+                    ctx.fill();
+                }
+            }
+        }
+
+        // Create stars
+        const stars = [];
+        for (let i = 0; i < 150; i++) {
+            stars.push(new Star());
+        }
+
+        // Animation loop
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            stars.forEach(star => {
+                star.update();
+                star.draw();
+            });
+            
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // ========== Scroll Reveal Animations with Nuclear Fallback ==========
+        const revealElements = document.querySelectorAll('.glass-card');
+        
+        // IntersectionObserver for scroll reveal
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        revealElements.forEach(el => observer.observe(el));
+
+        // Nuclear fallback - reveal all after 2.5 seconds
+        setTimeout(() => {
+            revealElements.forEach(el => {
+                el.classList.add('revealed');
+            });
+        }, 2500);
+
+        // ========== Smooth Scroll Enhancement ==========
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
